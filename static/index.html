@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101927">
+  <title>InboxPilot | AI Support Triage Demo</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">✳</span><span>inbox<span class="brand-light">pilot</span></span></div>
+      <div class="workspace-label">WORKSPACE</div>
+      <button class="nav-item active" type="button"><span class="nav-icon">▤</span> Inbox <span class="count">12</span></button>
+      <button class="nav-item" type="button"><span class="nav-icon">◷</span> Needs review <span class="count count-warm">4</span></button>
+      <button class="nav-item" type="button"><span class="nav-icon">✓</span> Resolved</button>
+      <div class="sidebar-bottom">
+        <div class="privacy-box"><span class="privacy-icon">◆</span><div><strong>Human approval on</strong><small>AI drafts. You decide.</small></div></div>
+        <div class="user-chip"><div class="avatar">FR</div><div><strong>Foyjul Raju</strong><small>Automation workspace</small></div><span class="dots">···</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div><span class="eyebrow">WORKSPACE / INBOX</span><h1>Support inbox</h1></div>
+        <div class="top-actions"><span class="live-status"><i></i> Workflow ready</span><button class="icon-button" type="button" aria-label="Notifications">♧</button><div class="avatar avatar-small">FR</div></div>
+      </header>
+
+      <section class="content-grid">
+        <div class="left-column">
+          <div class="section-heading"><div><h2>New customer message</h2><p>Review an incoming request and prepare a safe response.</p></div><span class="ticket-id">DEMO-1048</span></div>
+          <article class="message-card">
+            <div class="sender-row"><div class="sender-avatar">AC</div><div class="sender-meta"><strong>Alex Carter <span class="verified">●</span></strong><small>alex.carter@example.test · 8 min ago</small></div><span class="source-pill"><span>↗</span> Web form</span></div>
+            <div class="message-body"><span class="field-label">CUSTOMER MESSAGE</span><p id="sample-message">I was charged twice for my subscription this morning. Please help me get the duplicate charge reviewed.</p></div>
+            <div class="message-footer"><span>Sample data · no real customer information</span><span class="attachment">▧ No attachments</span></div>
+          </article>
+
+          <div class="workflow-bar"><span class="workflow-node done">1</span><span class="workflow-label">Intake</span><span class="workflow-line"></span><span class="workflow-node active-step">2</span><span class="workflow-label selected-label">AI triage</span><span class="workflow-line"></span><span class="workflow-node pending">3</span><span class="workflow-label">Human review</span></div>
+
+          <div class="section-heading result-heading"><div><h2>Triage result</h2><p>Structured output with a person in control.</p></div><span id="mode-badge" class="mode-badge">SAMPLE PREVIEW</span></div>
+          <article id="result-card" class="result-card">
+            <div class="result-top"><div><span class="field-label">CATEGORY</span><div id="category" class="category-value"><span class="category-icon">＄</span> Billing</div></div><div><span class="field-label">PRIORITY</span><div id="priority" class="priority-value"><i></i> High</div></div><div class="result-actions"><button class="subtle-button" type="button" id="copy-summary">Copy summary</button><button class="more-button" type="button" aria-label="More options">···</button></div></div>
+            <div class="result-section"><span class="field-label">SUMMARY</span><p id="summary">The customer reports a possible duplicate subscription charge and wants it reviewed.</p></div>
+            <div class="result-section"><span class="field-label">SUGGESTED NEXT STEP</span><div class="next-step"><span class="step-icon">↗</span><p id="action">Check the billing records for a duplicate charge and follow the company’s refund policy.</p></div></div>
+            <div class="result-section reply-section"><div class="reply-title"><span class="field-label">REPLY DRAFT</span><span class="draft-label">AI SUGGESTION</span></div><p id="reply">Thanks for letting us know. I’m sorry for the concern. We’ll review the two charges and follow up with the next steps. For your security, please don’t send full card details here.</p><button class="copy-reply" id="copy-reply" type="button">▢ Copy draft</button></div>
+            <div class="review-strip"><span class="review-check">✓</span><div><strong>Human review required</strong><small>This demo never sends a reply or changes a customer record.</small></div><span class="review-tag">APPROVAL GATE</span></div>
+          </article>
+          <div class="action-row"><button class="secondary-action" id="preview-button" type="button">↻ Load sample preview</button><button class="primary-action" id="run-button" type="button">✦ Run live AI triage <span>→</span></button></div>
+          <p class="live-note">Live mode sends the message to your configured OpenAI API account and may incur usage charges. Use sample data for this demo.</p>
+          <div id="notice" class="notice" role="status" aria-live="polite"></div>
+        </div>
+
+        <aside class="right-column">
+          <article class="automation-card"><div class="card-top"><span class="automation-icon">✳</span><span class="enabled-pill"><i></i> ACTIVE</span></div><h3>Smart triage workflow</h3><p>Organize incoming support messages and prepare a response for human review.</p><div class="automation-flow"><div class="flow-row"><span class="flow-icon inbox-icon">▤</span><span><strong>Message received</strong><small>Web form · sample inbox</small></span><span class="flow-check">✓</span></div><div class="flow-connector"></div><div class="flow-row"><span class="flow-icon ai-icon">✦</span><span><strong>AI classifies &amp; summarizes</strong><small>Category · priority · reply draft</small></span><span class="flow-check">✓</span></div><div class="flow-connector"></div><div class="flow-row"><span class="flow-icon human-icon">♙</span><span><strong>Human approval gate</strong><small>No automatic replies or refunds</small></span><span class="flow-pending">●</span></div></div><div class="automation-foot"><span>Built with</span><span class="tech-chip">Python</span><span class="tech-chip">Responses API</span><span class="tech-chip">JSON validation</span></div></article>
+          <article class="metrics-card"><div class="metrics-title"><strong>Today’s sample activity</strong><span class="info">i</span></div><div class="metric-row"><span>Messages previewed</span><strong>12</strong></div><div class="metric-row"><span>AI drafts prepared</span><strong>8</strong></div><div class="metric-row"><span>Human approvals</span><strong>8 / 8</strong></div><div class="sample-disclaimer">Illustrative interface data only · not measured client results</div></article>
+          <article class="safety-card"><span class="safety-mark">◇</span><div><strong>Safe by design</strong><p>Messages are not saved by this demo. Review AI suggestions before acting.</p></div></article>
+        </aside>
+      </section>
+      <footer class="footer"><span>INBOXPILOT · AI SUPPORT TRIAGE DEMO</span><span>Prototype experience · sample data</span></footer>
+    </main>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
